@@ -10,7 +10,7 @@ class ToDoList {
 
 const todoForm = document.querySelector("#todoForm");
 const todoInput = document.querySelector("#new-task");
-var myDiv = document.getElementById("my-div");
+let myDiv = document.getElementById("my-div");
 
 const toDoList = new ToDoList([]);
 
