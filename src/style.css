@@ -2,10 +2,7 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1a1a1a, #333333);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
+    background-color: #000000c1;
 }
   
 #todo-list {
@@ -23,12 +20,15 @@ body {
   
 #new-task {
     width: 60%;
-    padding: 10px;
+    padding: 1rem 0.5rem;
     margin-right: 10px;
 }
   
 #add-task {
-    padding: 10px;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    color:black;
+    background-color:white;
 }
   
 #task-list {
@@ -48,7 +48,23 @@ body {
 .task button {
     margin-left: 10px;
 }
+
 #todo-list #my-div{
     color:white;
     padding:0.5rem 0;
 }
+
+button.delete-button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    margin-left: 0.8rem;
+    font-size: 15px;
+}
+
+button.delete-button:hover {
+    background-color: #d22f0c;
+  }

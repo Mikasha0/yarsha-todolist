@@ -36,6 +36,7 @@ function renderArray() {
 
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
+    deleteButton.className = "delete-button";
 
     deleteButton.addEventListener("click", () => {
       toDoList.removeTodo(index);
