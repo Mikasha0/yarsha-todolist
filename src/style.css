@@ -3,7 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #1a1a1a, #333333);
-
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
   
 #todo-list {
@@ -48,4 +50,5 @@ body {
 }
 #todo-list #my-div{
     color:white;
+    padding:0.5rem 0;
 }
