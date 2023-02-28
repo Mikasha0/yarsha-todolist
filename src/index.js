@@ -43,7 +43,16 @@ function renderArray() {
       renderArray();
     });
 
+    const cutButton = document.createElement("button");
+    cutButton.innerText = "Cut";
+    cutButton.className = "cut-button";
+
+    cutButton.addEventListener("click", () => {
+      newItem.innerText = "";
+    });
+
     newItem.appendChild(deleteButton);
+    newItem.appendChild(cutButton);
 
     myDiv.appendChild(newItem);
   });
