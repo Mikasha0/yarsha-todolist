@@ -17,11 +17,14 @@ const toDoList = new ToDoList([]);
 todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  toDoList.todos.push(todoInput.value);
+  const todoValue = todoInput.value.trim();
+  if (todoValue !== "") {
+    toDoList.todos.push(todoInput.value);
 
-  renderArray();
-  console.log(toDoList);
-  todoForm.reset();
+    renderArray();
+    console.log(toDoList);
+    todoForm.reset();
+  }
 });
 
 function renderArray() {
