@@ -34,6 +34,14 @@ function renderArray() {
     const newItem = document.createElement("p");
     newItem.innerText = item;
 
+    const checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    checkBox.className = "check-box";
+
+    checkBox.addEventListener("click", () => {
+      newItem.style.textDecoration = checkBox.checked ? "line-through" : "none";
+    });
+
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
     deleteButton.className = "delete-button";
@@ -42,9 +50,9 @@ function renderArray() {
       toDoList.removeTodo(index);
       renderArray();
     });
+    newItem.appendChild(checkBox);
 
     newItem.appendChild(deleteButton);
-
     myDiv.appendChild(newItem);
   });
 }
