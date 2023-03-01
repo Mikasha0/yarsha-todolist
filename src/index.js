@@ -179,6 +179,7 @@ function renderArray() {
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.className = "check-box";
+    checkBox.checked = todo.status; // set checked attribute
 
     checkBox.addEventListener("click", () => {
       newItem.style.textDecoration = checkBox.checked ? "line-through" : "none";
