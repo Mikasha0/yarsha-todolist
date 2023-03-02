@@ -1,6 +1,9 @@
 class ToDoList {
   constructor(todos = []) {
-    this.todos = todos.map((todo) => ({ text: todo.text, status: false }));
+    this.todos = todos.map((todo) => ({
+      text: todo.text,
+      status: todo.status || false,
+    }));
   }
 
   addTodo(todo) {
