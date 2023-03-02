@@ -62,9 +62,6 @@ function renderArray() {
     statusSpan.className = "status";
     statusSpan.innerText = getTodoStatusText(todo);
 
-    // const checkBox = document.createElement("input");
-    // checkBox.type = "checkbox";
-    // checkBox.className = "check-box";
     const checkBox = createElement("input", "", "check-box", "checkbox");
     checkBox.checked = todo.status;
 
@@ -74,9 +71,6 @@ function renderArray() {
       statusSpan.innerText = getTodoStatusText(todo);
     });
 
-    // const deleteButton = document.createElement("button");
-    // deleteButton.innerText = "Delete";
-    // deleteButton.className = "delete-button";
     const deleteButton = createElement("button", "Delete", "delete-button");
 
     deleteButton.addEventListener("click", () => {
