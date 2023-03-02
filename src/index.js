@@ -34,7 +34,6 @@ todoForm.addEventListener("submit", (e) => {
   if (todoValue !== "") {
     toDoList.addTodo(todoValue);
 
-    // Store the updated todos in local storage
     localStorage.setItem("todos", JSON.stringify(toDoList.todos));
 
     renderArray();
