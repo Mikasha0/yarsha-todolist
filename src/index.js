@@ -20,7 +20,9 @@ const todoForm = document.querySelector("#todoForm");
 const todoInput = document.querySelector("#new-task");
 let myDiv = document.getElementById("my-div");
 
-const toDoList = new ToDoList([]);
+const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+
+const toDoList = new ToDoList(storedTodos);
 
 todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -28,6 +30,9 @@ todoForm.addEventListener("submit", (e) => {
   const todoValue = todoInput.value.trim();
   if (todoValue !== "") {
     toDoList.addTodo(todoValue);
+
+    // Store the updated todos in local storage
+    localStorage.setItem("todos", JSON.stringify(toDoList.todos));
 
     renderArray();
     console.log(toDoList);
@@ -54,7 +59,9 @@ function renderArray() {
     return element;
   }
 
-  toDoList.todos.forEach((todo, index) => {
+  const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+
+  storedTodos.forEach((todo, index) => {
     const newItem = document.createElement("p");
     newItem.innerText = todo.text;
 
@@ -69,12 +76,17 @@ function renderArray() {
       newItem.style.textDecoration = getTextDecorator(checkBox);
       toDoList.toggleStatus(index);
       statusSpan.innerText = getTodoStatusText(todo);
+
+      localStorage.setItem("todos", JSON.stringify(toDoList.todos));
     });
 
     const deleteButton = createElement("button", "Delete", "delete-button");
 
     deleteButton.addEventListener("click", () => {
       toDoList.removeTodo(index);
+
+      localStorage.setItem("todos", JSON.stringify(toDoList.todos));
+
       renderArray();
     });
     [checkBox, statusSpan, deleteButton].forEach((element) => {
@@ -83,3 +95,4 @@ function renderArray() {
     myDiv.appendChild(newItem);
   });
 }
+renderArray();
