@@ -42,6 +42,18 @@ function renderArray() {
     return todo.status ? "Completed" : "Incomplete";
   }
 
+  function getTextDecorator(checkBox) {
+    return checkBox.checked ? "line-through" : "none";
+  }
+
+  function createElement(elementType, text, className, type) {
+    const element = document.createElement(elementType);
+    element.innerText = text;
+    element.className = className;
+    element.type = type;
+    return element;
+  }
+
   toDoList.todos.forEach((todo, index) => {
     const newItem = document.createElement("p");
     newItem.innerText = todo.text;
@@ -50,20 +62,22 @@ function renderArray() {
     statusSpan.className = "status";
     statusSpan.innerText = getTodoStatusText(todo);
 
-    const checkBox = document.createElement("input");
-    checkBox.type = "checkbox";
-    checkBox.className = "check-box";
+    // const checkBox = document.createElement("input");
+    // checkBox.type = "checkbox";
+    // checkBox.className = "check-box";
+    const checkBox = createElement("input", "", "check-box", "checkbox");
     checkBox.checked = todo.status;
 
     checkBox.addEventListener("click", () => {
-      newItem.style.textDecoration = checkBox.checked ? "line-through" : "none";
+      newItem.style.textDecoration = getTextDecorator(checkBox);
       toDoList.toggleStatus(index);
       statusSpan.innerText = getTodoStatusText(todo);
     });
 
-    const deleteButton = document.createElement("button");
-    deleteButton.innerText = "Delete";
-    deleteButton.className = "delete-button";
+    // const deleteButton = document.createElement("button");
+    // deleteButton.innerText = "Delete";
+    // deleteButton.className = "delete-button";
+    const deleteButton = createElement("button", "Delete", "delete-button");
 
     deleteButton.addEventListener("click", () => {
       toDoList.removeTodo(index);
