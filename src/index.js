@@ -38,13 +38,17 @@ todoForm.addEventListener("submit", (e) => {
 function renderArray() {
   myDiv.innerHTML = "";
 
+  function getTodoStatusText(todo) {
+    return todo.status ? "Completed" : "Incomplete";
+  }
+
   toDoList.todos.forEach((todo, index) => {
     const newItem = document.createElement("p");
     newItem.innerText = todo.text;
 
     const statusSpan = document.createElement("span");
     statusSpan.className = "status";
-    statusSpan.innerText = todo.status ? "Completed" : "Incomplete";
+    statusSpan.innerText = getTodoStatusText(todo);
 
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
@@ -54,7 +58,7 @@ function renderArray() {
     checkBox.addEventListener("click", () => {
       newItem.style.textDecoration = checkBox.checked ? "line-through" : "none";
       toDoList.toggleStatus(index);
-      statusSpan.innerText = todo.status ? "Completed" : "Incomplete";
+      statusSpan.innerText = getTodoStatusText(todo);
     });
 
     const deleteButton = document.createElement("button");
@@ -65,10 +69,9 @@ function renderArray() {
       toDoList.removeTodo(index);
       renderArray();
     });
-
-    newItem.appendChild(checkBox);
-    newItem.appendChild(statusSpan);
-    newItem.appendChild(deleteButton);
+    [checkBox, statusSpan, deleteButton].forEach((element) => {
+      newItem.appendChild(element);
+    });
     myDiv.appendChild(newItem);
   });
 }
