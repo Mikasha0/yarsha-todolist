@@ -35,7 +35,12 @@ body {
     margin-right: 10px;
     border-radius: 0.5rem;
 }
-  
+#title{
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    color:black;
+    background-color:white;
+}
 #add-task {
     padding: 1rem 2rem;
     border-radius: 0.5rem;
