@@ -68,9 +68,7 @@ function renderArray() {
     return element;
   }
 
-  const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-
-  storedTodos.forEach((todo, index) => {
+  toDoList.todos.forEach((todo, index) => {
     const newItem = document.createElement("p");
 
     // Create title element with contenteditable attribute
